@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 3 Representación de datos geoespaciales vectoriales | Notas para la sección de Sistemas Geo-referenciados</title>
+  <meta name="description" content="Notas para el capítulo de Sistemas georreferenciados del curso Gestión de Datos." />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 3 Representación de datos geoespaciales vectoriales | Notas para la sección de Sistemas Geo-referenciados" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Notas para el capítulo de Sistemas georreferenciados del curso Gestión de Datos." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 3 Representación de datos geoespaciales vectoriales | Notas para la sección de Sistemas Geo-referenciados" />
+  
+  <meta name="twitter:description" content="Notas para el capítulo de Sistemas georreferenciados del curso Gestión de Datos." />
+  
+
+<meta name="author" content="José Incera" />
+
+
+<meta name="date" content="2024-09-07" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="operaciones-espaciales.html"/>
+<link rel="next" href="referencias.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Narrativas y Visualización. Notas de Curso</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Presentación</a></li>
+<li class="chapter" data-level="1" data-path="gráficas-geoespaciales.html"><a href="gráficas-geoespaciales.html"><i class="fa fa-check"></i><b>1</b> Gráficas geoespaciales</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="gráficas-geoespaciales.html"><a href="gráficas-geoespaciales.html#sistemas-de-información-geográfica"><i class="fa fa-check"></i><b>1.1</b> Sistemas de información geográfica</a></li>
+<li class="chapter" data-level="1.2" data-path="gráficas-geoespaciales.html"><a href="gráficas-geoespaciales.html#proyecciones"><i class="fa fa-check"></i><b>1.2</b> Proyecciones</a></li>
+<li class="chapter" data-level="1.3" data-path="gráficas-geoespaciales.html"><a href="gráficas-geoespaciales.html#sistema-de-referencia-de-coordenadas"><i class="fa fa-check"></i><b>1.3</b> Sistema de Referencia de Coordenadas</a></li>
+<li class="chapter" data-level="1.4" data-path="gráficas-geoespaciales.html"><a href="gráficas-geoespaciales.html#representación-de-datos-geoespaciales"><i class="fa fa-check"></i><b>1.4</b> Representación de datos geoespaciales</a></li>
+<li class="chapter" data-level="1.5" data-path="gráficas-geoespaciales.html"><a href="gráficas-geoespaciales.html#formatos-de-almacenamiento"><i class="fa fa-check"></i><b>1.5</b> Formatos de almacenamiento</a></li>
+<li class="chapter" data-level="1.6" data-path="gráficas-geoespaciales.html"><a href="gráficas-geoespaciales.html#visualización-de-datos-geoespaciales."><i class="fa fa-check"></i><b>1.6</b> Visualización de datos geoespaciales.</a>
+<ul>
+<li class="chapter" data-level="" data-path="gráficas-geoespaciales.html"><a href="gráficas-geoespaciales.html#mapas-de-coropletas"><i class="fa fa-check"></i>Mapas de coropletas</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="operaciones-espaciales.html"><a href="operaciones-espaciales.html"><i class="fa fa-check"></i><b>2</b> Operaciones espaciales</a></li>
+<li class="chapter" data-level="3" data-path="representación-de-datos-geoespaciales-vectoriales.html"><a href="representación-de-datos-geoespaciales-vectoriales.html"><i class="fa fa-check"></i><b>3</b> Representación de datos geoespaciales vectoriales</a></li>
+<li class="chapter" data-level="" data-path="referencias.html"><a href="referencias.html"><i class="fa fa-check"></i>Referencias</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Publicado con bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Notas para la sección de Sistemas Geo-referenciados</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="representación-de-datos-geoespaciales-vectoriales" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Capítulo 3</span> Representación de datos geoespaciales vectoriales<a href="representación-de-datos-geoespaciales-vectoriales.html#representación-de-datos-geoespaciales-vectoriales" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Simple Features” (Características Simples) es un estándar más amplio que se aplica a la representación de datos geoespaciales vectoriales en general, no solo en R.
+Simple Features en General
+Estándar ISO: Las “Simple Features” son un estándar formal (ISO 19125-1:2004) que describe cómo representar objetos del mundo real en computadoras, enfocándose en la geometría espacial de estos objetos. Este estándar define cómo almacenar y recuperar estos objetos de bases de datos y qué operaciones geométricas deben definirse para ellos</p>
+<p>La representación de datos en formato sf (Simple Features) se basa en el estándar ISO 19125-1:2004, que define cómo representar y acceder a funciones simples de información geográfica.</p>
+<p>El estándar ISO 19125-1:2004 para la representación de datos geoespaciales en formato “Simple Features” define varias operaciones geométricas básicas que se pueden realizar sobre los objetos geográficos. A continuación, se detallan las operaciones geométricas clave:
+Operaciones Geométricas
+Intersección:
+Intersection: Esta operación devuelve la parte común entre dos o más geometrías. Por ejemplo, si tienes dos polígonos que se superponen, la intersección devolverá el área común entre ellos.
+Unión:
+Union: Esta operación combina dos o más geometrías en una sola. Por ejemplo, si tienes dos polígonos adyacentes, la unión devolverá un polígono que incluye ambas áreas.
+Diferencia:
+Difference: Esta operación devuelve la parte de una geometría que no se superpone con otra. Por ejemplo, si tienes un polígono y otro que se superpone parcialmente, la diferencia devolverá la parte del primer polígono que no está cubierta por el segundo.
+Distancia:
+Distance: Esta operación calcula la distancia entre dos geometrías. Por ejemplo, puedes calcular la distancia entre dos puntos o entre un punto y un polígono.
+Contiene:
+Contains: Esta operación verifica si una geometría contiene completamente a otra. Por ejemplo, si tienes un polígono y un punto, la operación “contains” devolverá True si el punto está dentro del polígono.
+Cruce:
+Crosses: Esta operación verifica si dos geometrías se cruzan. Por ejemplo, si tienes dos líneas, la operación “crosses” devolverá True si las líneas se cruzan en algún punto.
+Disjoint:
+Disjoint: Esta operación verifica si dos geometrías no se superponen. Por ejemplo, si tienes dos polígonos que no se tocan, la operación “disjoint” devolverá True.
+Equals:
+Equals: Esta operación verifica si dos geometrías son idénticas. Por ejemplo, si tienes dos polígonos que tienen las mismas coordenadas, la operación “equals” devolverá True.
+Overlaps:
+Overlaps: Esta operación verifica si dos geometrías se superponen parcialmente. Por ejemplo, si tienes dos polígonos que se superponen en alguna área, la operación “overlaps” devolverá True.
+Touches:
+Touches: Esta operación verifica si dos geometrías se tocan en algún punto o línea. Por ejemplo, si tienes dos polígonos que se tocan en una esquina, la operación “touches” devolverá True.
+Within:
+Within: Esta operación verifica si una geometría está completamente dentro de otra. Por ejemplo, si tienes un punto y un polígono, la operación “within” devolverá True si el punto está dentro del polígono</p>
+<p>Otras no en el estándar.</p>
+<p>Area. Calucla el área de una geometría.<br />
+centroide</p>
+<p>The core data structure in GeoPandas is the geopandas.GeoDataFrame, a subclass of pandas.DataFrame, that can store geometry columns and perform spatial operations. The geopandas.GeoSeries, a subclass of pandas.Series, handles the geometries. Therefore, your GeoDataFrame is a combination of pandas.Series, with traditional data (numerical, boolean, text etc.), and geopandas.GeoSeries, with geometries (points, polygons etc.). You can have as many columns with geometries as you wish; unlike in some typical desktop GIS software.</p>
+<p>Each GeoSeries can contain any geometry type (you can even mix them within a single array) and has a GeoSeries.crs attribute, which stores information about the projection (CRS stands for Coordinate Reference System). Therefore, each GeoSeries in a GeoDataFrame can be in a different projection, allowing you to have, for example, multiple versions (different projections) of the same geometry.</p>
+<p>Only one GeoSeries in a GeoDataFrame is considered the active geometry column, which means that all geometric operations applied to a GeoDataFrame operate on this column. The active geometry column is accessed via the GeoDataFrame.geometry attribute.</p>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="operaciones-espaciales.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="referencias.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/01-VizGeo.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
