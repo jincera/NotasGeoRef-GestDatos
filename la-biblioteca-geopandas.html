@@ -23,7 +23,7 @@
 <meta name="author" content="José Incera" />
 
 
-<meta name="date" content="2024-09-09" />
+<meta name="date" content="2024-09-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -199,8 +199,8 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="la-biblioteca-geopandas" class="section level1 hasAnchor" number="2">
 <h1><span class="header-section-number">Capítulo 2</span> La biblioteca GeoPandas<a href="la-biblioteca-geopandas.html#la-biblioteca-geopandas" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>GeoPandas es una extensión de la biblioteca Pandas que permite trabajar con datos geoespaciales de una manera muy eficiente. Su estrucutra de datos central es <strong>GeoDataFrame</strong>, una subclase del DataFrame de pandas que puede incluir columnas llamadas <em>geometrías</em> o <em>GeoSeries</em> en las que se almacena la información geoespacial, y define una serie de operaciones espaciales. De esta manera, en un GeoDataFrame se pueden combinar datos tradicionales con geometrías (puntos, polígonos, líneas) y hacer operaciones sobre ellos.</p>
-<p>A diferencia de la mayoría de paquetes GIS, GeoPandas permite que un mismo GeoDataFrame se especifiquen varias geometrías. Cada geometría puede tener su propio CRS y solo una geometría puede estar activa. El poder contar con varias geometrías es muy útil cuando es necesrio trabajar en diferentes proyecciones. Además, permite cambiar geometrías a distintos CRS con el método <em>to_crs()</em>.</p>
+<p>GeoPandas es una extensión de la biblioteca Pandas que permite trabajar con datos geoespaciales de una manera muy eficiente. Su estructura de datos central es <strong>GeoDataFrame</strong>, una subclase del DataFrame de pandas que puede incluir columnas llamadas <em>geometrías</em> o <em>GeoSeries</em> en las que se almacena la información geoespacial, y define una serie de operaciones espaciales. De esta manera, en un GeoDataFrame se pueden combinar datos tradicionales con geometrías (puntos, polígonos, líneas) y hacer operaciones sobre ellos.</p>
+<p>A diferencia de la mayoría de paquetes GIS, GeoPandas permite que un mismo GeoDataFrame se especifiquen varias geometrías. Cada geometría puede tener su propio CRS y solo una geometría puede estar activa. El poder contar con varias geometrías es muy útil cuando es necesario trabajar en diferentes proyecciones. Además, permite cambiar geometrías a distintos CRS con el método <em>to_crs()</em>.</p>
 <p>GeoPandas soporta la mayoría de los formatos de archivos, como Shapefiles (.shp), GeoJSON y KML. Los archivos se leen con el método <em>read_file()</em> y se pueden guardar GeoDataFrames como archivos geoespaciales con el método <em>to_file()</em>.</p>
 <p>En cuanto a la visualización, GeoPandas integra su funcionalidad con matplotlib y otras herramientas, lo que permite generar rápidamente mapas y visualizaciones geoespaciales con el método <em>plot()</em>.</p>
 <div id="operaciones-geoespaciales." class="section level2 hasAnchor" number="2.1">

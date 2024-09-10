@@ -23,7 +23,7 @@
 <meta name="author" content="José Incera" />
 
 
-<meta name="date" content="2024-09-09" />
+<meta name="date" content="2024-09-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -199,9 +199,9 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="gráficas-geoespaciales" class="section level1 hasAnchor" number="1">
 <h1><span class="header-section-number">Capítulo 1</span> Gráficas geoespaciales<a href="gráficas-geoespaciales.html#gráficas-geoespaciales" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Las gráficas geoespaciales son muy útiles para visualizar datos que están relacionados con, o tienen sentido en un contexto geográfico. Por ejemplo, en estas representaciones visuales se pueden proyectar datos como la densidad de población, el clima, criminalidad, actividad económica, etcétera, sobre las regiones en que inciden estos datos.</p>
+<p>Las gráficas geoespaciales son muy útiles para visualizar datos que están relacionados con, o tienen sentido en un contexto geográfico. Por ejemplo, en estas representaciones visuales se pueden proyectar datos como la densidad de población, el clima, incidentes de criminalidad, intensidad de actividad económica, etcétera, sobre las regiones en que inciden estos datos.</p>
 <p>Esta proyección sobre un mapa es mucho más fácil de asimilar que la representación de datos en una tabla o en una gráfica porque el mapa suele generar una <em>relación empática con el observador</em> que facilita identificarse con los datos (“se ve” en los datos).</p>
-<p>Este tipo de gráficas es muy útil y popular en una gran diversidad de campos, como planificación urbana, logística, marketing personalizado, análisis socioeconómico, entre muchos otros para mostrar los datos de manera atractiva. Los mapas pueden ofrecer un valioso contexto que facilita la interpretación de los datos, y pueden ayudar a obtener una mejor perspectiva de la información que se presenta. Además, es más sencillo descubrir patrones y relaciones geográficas que sería casi imposible detectar con otro tipo de representación visual.</p>
+<p>Este tipo de gráficas es muy útil y popular en una gran diversidad de campos, como planificación urbana, logística, marketing personalizado, análisis socio-económico, entre muchos otros para mostrar los datos de manera atractiva. Los mapas pueden ofrecer un valioso contexto que facilita la interpretación de los datos, y pueden ayudar a obtener una mejor perspectiva de la información que se presenta. Además, es más sencillo descubrir patrones y relaciones geográficas que sería casi imposible detectar con otro tipo de representación visual.</p>
 <p>Para crear una gráfica geoespacial, el conjunto de datos debe contar con información geográfica, como las coordenadas de longitud y latitud, el nombre de las localidades, los códigos postales o las direcciones. Las herramientas de visualización como ArcGIS, Leaflet, Tableau o Excel pueden interpretar esos datos para reflejarlos sobre un mapa.</p>
 <div id="sistemas-de-información-geográfica" class="section level2 hasAnchor" number="1.1">
 <h2><span class="header-section-number">1.1</span> Sistemas de información geográfica<a href="gráficas-geoespaciales.html#sistemas-de-información-geográfica" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -248,7 +248,7 @@ Figura 1.2: <em>Proyección Mercator vs tamaño de los países. Fuente: <span cl
 </ul>
 <p>Todos los Sistemas de Referenca de Coordenadas (CRS, <em>Coordinate Reference System</em>) están basados en un <strong>Datum</strong>. Se trata de un modelo de la forma de la superficie de la tierra (un elipsoide) y el origen donde la elipsoide se alinea con la superficie terrestre.
 DEBE definirse con precisión para que proyecciones futuras (curvas o planas) operen correctamente.</p>
-<p>En resumen, el CRS defien cómo se interpretan las coordenadas en un mapa. Incluye información sobre el datum, el tipo de proyección utilizada y la unidad de medida de las coordenadas. Existen muchos CRS; probablemente el de cobertura global más común es WGS84, utilizado por el Sistema de Posicionamiento Global (GPS) operado por los Estados Unidos.</p>
+<p>En resumen, el CRS define cómo se interpretan las coordenadas en un mapa. Incluye información sobre el datum, el tipo de proyección utilizada y la unidad de medida de las coordenadas. Existen muchos CRS; probablemente el de cobertura global más común es WGS84, utilizado por el Sistema de Posicionamiento Global (GPS) operado por los Estados Unidos.</p>
 <p>Algo muy importante que se debe tener en cuenta al combinar bases de datos georreferenciadas, es asegurar que utilizan el mismo CRS. Afortunadamente es fácil encontrar librerías y herramientas que permiten transformar un CRS en otro.</p>
 </div>
 <div id="representación-de-datos-geoespaciales" class="section level2 hasAnchor" number="1.4">
@@ -330,7 +330,7 @@ Figura 1.6: <em>Símbolos en mapas geoespaciales. Fuente: <span class="citation"
 Figura 1.7: <em>Número de habitantes por Estado. Fuente: Elaboración propia con datos de INEGI,2010</em>
 </p>
 </div>
-<p>En principio, lo que se está mencionando para implementar mapas de coropletas parece contravenir varias de las recomendaciones hechas en este curso: <em>se están utilizando áreas (polígonos) y atributos de color para representar información, dos canales visuales evaluados muy bajo en la escala de efectividad</em>. Sin embargo, estos canales son apropiados cuando el objetivo no es hacer juicios precisos sino detectar patrones generales.</p>
+<p>En principio, lo que se está mencionando para implementar mapas de coropletas parece ser poco adecuado para una representación gráfica: <em>se están utilizando áreas (polígonos) y atributos de color para representar información, dos canales visuales evaluados muy bajo en la escala de efectividad</em>. Sin embargo, estos canales son apropiados cuando el objetivo no es hacer juicios precisos sino detectar patrones generales.</p>
 <p>Por ejemplo, en el mapa de la figura <a href="gráficas-geoespaciales.html#fig:desempleo">1.8</a>, se muestra la tasa de desempleo por condado en Estados Unidos en 2022. Al presentar este tipo de información, el objetivo no es identificar el condado con la menor o la mayor tasa de desempleo sino detectar patrones y agrupamientos, como la franja de muy bajo desempleo que se observa en la zona central del país.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:desempleo"></span>
 <img src="figuras/desempleo.JPG" alt="*Tasas de desempleo en Estados Unidos por condado, 2022. Fuente: Bureau of Labor Statistics. https://www.bis.gov/lau/maps/aacnrt.pdf*" width="50%" />
@@ -347,7 +347,7 @@ Figura 1.8: <em>Tasas de desempleo en Estados Unidos por condado, 2022. Fuente: 
 Figura 1.9: <em>Tasas de desempleo en Estados Unidos por condado, 2022. Fuente: Elaboración propia a partir del tutorial de Tableau “Muestra – Supertienda”</em>
 </p>
 </div>
-<p>En segundo lugar, la interpretación de la información también es muy sensible a la manera en que se subdivide o compartimenta la paleta de colores para las coropletas. A estas divisiones se les llama clases y en la unidad 2 de este curso se ha mencionado que, si se utilizan diferentes tonalidades, no se deben tener más de 10 o 12, mientras que, si se modifican otras propiedades del color como el brillo o la saturación, no se pueden identificar más de cinco o seis clases.</p>
+<p>En segundo lugar, la interpretación de la información también es muy sensible a la manera en que se subdivide o compartimenta la paleta de colores para las coropletas. A estas divisiones se les llama clases y si se utilizan diferentes tonalidades, no se deben tener más de 10 o 12, mientras que, si se modifican otras propiedades del color como el brillo o la saturación, no se pueden identificar más de cinco o seis clases.</p>
 <p>El asociar los datos a clases para que los patrones relevantes sean visibles, pero sin exagerarlos, es todo un reto y requiere con frecuencia de ajustes manuales, es decir, la manera en la que las herramientas de visualización determinan el número de clases y asignan los valores a ellas por omisión, suele ser inapropiada, sobre todo cuando los datos están muy sesgados. Por ejemplo, la figura <a href="gráficas-geoespaciales.html#fig:denspob1">1.10</a> muestra la densidad de la población en los Estados de México de acuerdo a los datos del censo poblacional de 2010.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:denspob1"></span>
 <img src="figuras/denspob1.JPG" alt="*Densidad de población-Mala asignación de clases. Fuente: Elaboración propia con datos de INEGI, 2010*" width="60%" />
